@@ -1,16 +1,21 @@
-import React, {Component } from 'react'
+import React  from 'react'
+import { Button } from "../components/AuthForm";
+import { useAuth } from "../context/auth";
 
-export class Admin extends Component {
-    constructor(props) {
-        super(props)
+function Admin (props){
+    const { setAuthTokens } = useAuth();
+
+    function logOut() {
+      setAuthTokens();
     }
-    render() {
-        return(
-            <div>
-                Admin
-            </div>
-        );
-    }
+    
+    return(
+        <div>
+            <div>Admin Page</div>
+            <Button onClick={logOut}>Log out</Button>
+        </div>
+    );
+    
 
 }
 

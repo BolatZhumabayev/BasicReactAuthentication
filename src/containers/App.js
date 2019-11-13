@@ -8,18 +8,19 @@ import PrivateRoute from './PrivateRoute';
 import { AuthContext } from "../context/auth";
 
 
+
 // https://medium.com/better-programming/building-basic-react-authentication-e20a574d5e71
-
+// https://medium.com/@samueldinesh/setting-up-redux-devtools-a-simple-guide-3b386a6254fa
 function App (props) {
-    // const[authTokens, setAuthTokens] = useState();
+    const[authTokens, setAuthTokens] = useState();
 
-    // const setTokens = (data) => {
-    //     localStorage.setItem("tokens", JSON.stringify(data));
-    //     setAuthTokens(data);
-    // }
-//{authTokens, setAuthTokens: setTokens}
+    const setTokens = (data) => {
+        localStorage.setItem("tokens", JSON.stringify(data));
+        setAuthTokens(data);
+    }
+//
     return(
-        <AuthContext.Provider value={false}>
+        <AuthContext.Provider value={{authTokens, setAuthTokens: setTokens}}>
             <Router>
             <div>
                 <ul>
